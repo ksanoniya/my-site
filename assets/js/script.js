@@ -38,20 +38,24 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+   $(document).ready(function () {
+  emailjs.init("IAtSahRGiiwU60JzS"); // ✅ Your Public Key
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
+  $("#contact-form").submit(function (event) {
+    event.preventDefault();
+
+    emailjs.sendForm('service_rcx9s9y', 'template_lgbbnjh', '#contact-form') // 🔁 Replace with real template ID
+      .then(function (response) {
+        console.log('SUCCESS!', response.status, response.text);
+        document.getElementById("contact-form").reset();
+        alert("Form Submitted Successfully");
+      }, function (error) {
+        console.log('FAILED...', error);
+        alert("Form Submission Failed! Try Again");
+      });
+  });
+});
+
     // <!-- emailjs to mail contact form data -->
 
 });
